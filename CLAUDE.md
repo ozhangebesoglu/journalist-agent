@@ -67,6 +67,46 @@ Reddit API ──► reddit_fetcher ──────────────�
 
 **Feedback Loop**: Analyst rejection creates `data/feedback.json` with issues, writer reads this on next iteration to improve the draft.
 
+## New Features (v2)
+
+**Weekly/Monthly Reports** (`weekly_report.py`):
+- Trend analysis across 7/30 days
+- Language evolution tracking
+- Rising/declining repo classification
+- Commands: `/weekly`, `/monthly`
+
+**Smart Notifications** (`smart_notifications.py`):
+- Star milestone alerts (1K, 5K, 10K, etc.)
+- Security advisory detection
+- Breaking change / major release alerts
+- Personalized trending alerts
+
+**Personalized Feed** (`personalized_feed.py`):
+- Interest-based content filtering
+- Language preference matching
+- Relevance scoring
+- Commands: `/interests`, `/feed`
+
+**Proactive Suggestions** (`proactive_suggestions.py`):
+- Language-based recommendations
+- Learning path suggestions
+- Discovery recommendations
+- Commands: `/suggest`
+
+**Learning Tracker** (`learning_tracker.py`):
+- Topic extraction from queries
+- Mastery level tracking
+- Spaced repetition reminders
+- Weekly learning summaries
+- Commands: `/learning`, `/learning stats`, `/learning quiz`
+
+**Voice Assistant** (`voice_assistant.py`):
+- Speech-to-Text: Gemini veya Whisper API ile ses tanıma
+- Text-to-Speech: Edge TTS ile sesli yanıt (Türkçe)
+- Voice message support: Telegram ses mesajlarını anlama
+- Commands: `/voicebriefing`, `/speak`, `/voice`
+- 🎤 Ses mesajı gönder → AI yanıtı hem yazılı hem sesli
+
 ## Database Schema
 
 SQLite database at `data/gazeteci.db`:
@@ -75,6 +115,11 @@ SQLite database at `data/gazeteci.db`:
 - `hn_stories`, `reddit_posts`: Social media content
 - `repo_mentions`: Cross-references between repos and HN/Reddit
 - `briefings`, `briefing_repos`: Track which repos were featured when
+- `user_preferences`: User interests, languages, notification settings
+- `learning_topics`: Topic tracking with mastery levels
+- `smart_notifications`: Notification history
+- `weekly_reports`: Stored weekly/monthly reports
+- `suggestions`: Proactive suggestion history
 
 ## Key Patterns
 

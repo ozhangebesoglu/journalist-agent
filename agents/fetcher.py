@@ -70,10 +70,7 @@ def fetch_repos(limit=10):
             
             repos.append({
                 "name": repo_name,
-                "github_id": i["id"],
                 "stars": i["stargazers_count"],
-                "forks": i.get("forks_count", 0),
-                "open_issues": i.get("open_issues_count", 0),
                 "desc": i.get("description") or "Açıklama yok",
                 "url": i["html_url"],
                 "lang": i.get("language") or "Belirtilmemiş",

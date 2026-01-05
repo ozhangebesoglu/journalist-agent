@@ -13,6 +13,12 @@ from agents import analyst
 from agents import db
 from agents import data_persister
 from agents import trend_analyzer
+from agents import telegram_bot
+from agents import scheduler
+from agents import ai_assistant
+from agents import repo_watcher
+from agents import discovery
+from agents import utilities
 
 __all__ = [
     "fetcher",
@@ -24,4 +30,10 @@ __all__ = [
     "db",
     "data_persister",
     "trend_analyzer",
+    "telegram_bot",
+    "scheduler",
+    "ai_assistant",
+    "repo_watcher",
+    "discovery",
+    "utilities",
 ]

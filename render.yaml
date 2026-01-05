@@ -1,0 +1,9 @@
+# Render.com Build & Deploy Configuration
+
+# Python version
+python-3.13
+
+# Build command
+pip install -r requirements.txt
+
+# Start command is defined in Procfile

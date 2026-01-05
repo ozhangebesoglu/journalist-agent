@@ -3,8 +3,6 @@ import json
 from dotenv import load_dotenv
 from google import genai
 from pydantic import BaseModel, Field
-from agents import db
-from agents import data_persister
 
 load_dotenv()
 
@@ -12,7 +10,6 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 MODEL = "gemini-2.0-flash"
 
 DRAFT_PATH = "data/draft.md"
-REPOS_PATH = "data/repos.json"
 FEEDBACK_PATH = "data/feedback.json"
 FINAL_PATH = "reports/final_report.md"
 
@@ -70,23 +67,10 @@ def run_analyst():
         os.makedirs("reports", exist_ok=True)
         with open(FINAL_PATH, "w", encoding="utf-8") as f:
             f.write(draft)
-
+        
         if os.path.exists(FEEDBACK_PATH):
             os.remove(FEEDBACK_PATH)
-
-        # Briefing'i veritabanına kaydet ve repoları işaretle
-        try:
-            briefing_id = db.create_briefing(report_path=FINAL_PATH)
-
-            # Öne çıkan repoları işaretle
-            if os.path.exists(REPOS_PATH):
-                with open(REPOS_PATH, encoding="utf-8") as f:
-                    repos = json.load(f)
-                data_persister.mark_featured_repos(briefing_id, repos)
-                print(f"🗄️ [ANALYST] Briefing #{briefing_id} veritabanına kaydedildi.")
-        except Exception as e:
-            print(f"⚠️ [ANALYST] Veritabanı kaydı başarısız: {e}")
-
+            
         print("✅ [ANALYST] Rapor ONAYLANDI -> reports/final_report.md")
         return "approved"
     

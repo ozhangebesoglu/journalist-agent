@@ -1,7 +1,43 @@
+# Virtual Environment
 venv/
+.venv/
+env/
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Environment variables
 .env
+.env.*
+.env.local
+.env.save
+
+# Data files (generated)
 data/*.json
 data/*.db
+data/*.txt
+
+# Reports (generated)
 reports/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

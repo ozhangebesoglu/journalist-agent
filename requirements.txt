@@ -3,4 +3,9 @@ python-dotenv
 requests
 pydantic
 beautifulsoup4
+edge-tts
+python-telegram-bot
 praw
+apscheduler
+flask
+gunicorn
