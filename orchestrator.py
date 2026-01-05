@@ -116,6 +116,11 @@ def main():
         print("   Bot komutları dinlenecek")
         print(f"   Günlük brifing: {args.hour:02d}:{args.minute:02d}\n")
 
+        # Veritabanı tablolarını oluştur
+        from agents.db import init_db
+        init_db()
+        print("   ✅ Veritabanı hazır")
+
         # Render.com için keep-alive sunucusu
         try:
             from keep_alive import keep_alive
